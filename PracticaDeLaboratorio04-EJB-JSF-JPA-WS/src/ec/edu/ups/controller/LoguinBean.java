@@ -4,12 +4,13 @@ import java.io.Serializable;
 
 import javax.faces.context.FacesContext;
 
-public class LoginBean implements Serializable{
+public class LoguinBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	
 	public void login() {
+        FacesContext context = FacesContext.getCurrentInstance();
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("accesos", 1);
 	}
 	

@@ -10,8 +10,7 @@ import javax.persistence.PersistenceContext;
 import ec.edu.ups.entidades.PedidoCabecera;
 
 @Stateless
-public class PedidoCabeceraFacade extends AbstractFacade<PedidoCabecera>{
-	
+public class PedidoCabeceraFacade  extends AbstractFacade<PedidoCabecera>{
 	@PersistenceContext(unitName = "PracticaDeLaboratorio04-EJB-JSF-JPA-WS")
     private EntityManager em;
 
@@ -45,4 +44,5 @@ public class PedidoCabeceraFacade extends AbstractFacade<PedidoCabecera>{
     	}
     	return cabeceras;
     }
+    
 }

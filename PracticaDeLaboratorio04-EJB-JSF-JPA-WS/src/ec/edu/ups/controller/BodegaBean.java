@@ -314,13 +314,13 @@ public String iniciarSecion() {
 		
 		
 		Persona sta = ejbPersona.inicioSesion(usuario, contrasena);
-		LoginBean loginBean=new LoginBean();
+		LoguinBean loguinBean=new LoguinBean();
 		
 		if (sta != null && sta.getRol() == 'A') {
-			loginBean.login();
+			loguinBean.login();
 			return "inicioAdmin";
 		}else if (sta != null) {
-			loginBean.login();
+			loguinBean.login();
 			return "inicioUsuario";
 		}
 		

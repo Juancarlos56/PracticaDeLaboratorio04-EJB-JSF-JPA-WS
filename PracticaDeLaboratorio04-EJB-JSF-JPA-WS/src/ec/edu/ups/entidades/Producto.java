@@ -28,13 +28,10 @@ public class Producto implements Serializable {
 	private Categoria categoria;
 	
 	@ManyToMany(mappedBy = "productos")
-	private List<Bodega> bodegas = new ArrayList<Bodega>();
+	private List<Bodega> bodegas;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private List<FacturaDetalle> facturasDetallesList = new ArrayList<FacturaDetalle>();
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "productosPedido")
-    private List<PedidoDetalle> pedidosDetalleList = new ArrayList<PedidoDetalle>();
+    private List<FacturaDetalle> facturasDetallesList;
 	
 	public Producto(int id, String nombre, float precio, int stock, char estado, Categoria categoria) {
 		this.setId(id);
@@ -43,40 +40,15 @@ public class Producto implements Serializable {
 		this.setStock(stock);
 		this.setEstado(estado);
 		this.setCategoria(categoria);
+		bodegas = new ArrayList<Bodega>();
 	}
-
 
 	public Producto() {
+		bodegas = new ArrayList<Bodega>();
+	}
+	
+	
 		
-	}
-	
-	
-	
-	public List<FacturaDetalle> getFacturasDetallesList() {
-		return facturasDetallesList;
-	}
-
-	public void setFacturasDetallesList(List<FacturaDetalle> facturasDetallesList) {
-		this.facturasDetallesList = facturasDetallesList;
-	}
-	
-	public void addFacturasDetallesList(FacturaDetalle facturasDetallesList) {
-		this.facturasDetallesList.add(facturasDetallesList);
-	}
-
-	public List<PedidoDetalle> getPedidosDetalleList() {
-		return pedidosDetalleList;
-	}
-
-	public void setPedidosDetalleList(List<PedidoDetalle> pedidosDetalleList) {
-		this.pedidosDetalleList = pedidosDetalleList;
-	}
-
-	public void addPedidosDetalleList(PedidoDetalle pedidosDetalleList) {
-		this.pedidosDetalleList.add(pedidosDetalleList);
-	}
-
-	
 	public int getId() {
 		return id;
 	}

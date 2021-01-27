@@ -10,8 +10,8 @@
 		<class>ec.edu.ups.entidades.Persona</class>
 		<class>ec.edu.ups.entidades.Provincia</class>
 		<class>ec.edu.ups.entidades.Producto</class>
-		<class>ec.edu.ups.entidades.PedidoCabecera</class>
 		<class>ec.edu.ups.entidades.PedidoDetalle</class>
+		<class>ec.edu.ups.entidades.PedidoCabecera</class>
 		<properties>
 			 <property name="javax.persistence.schema-generation.database.action" value="create"/>
 		</properties>

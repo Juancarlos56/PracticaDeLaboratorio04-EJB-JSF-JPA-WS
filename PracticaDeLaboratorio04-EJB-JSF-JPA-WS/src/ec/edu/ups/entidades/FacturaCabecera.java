@@ -1,6 +1,7 @@
 package ec.edu.ups.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class FacturaCabecera implements Serializable {
 	@JoinColumn
 	private Persona persona;
 	
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaCabecera")
 	private List<FacturaDetalle> facturasDetalle;
 	
@@ -49,6 +51,7 @@ public class FacturaCabecera implements Serializable {
 		this.setIva(iva);
 		this.setEstado(estado);
 		this.setPersona(persona);
+		facturasDetalle = new ArrayList<FacturaDetalle>();
 	}
 	
 	public FacturaCabecera() {

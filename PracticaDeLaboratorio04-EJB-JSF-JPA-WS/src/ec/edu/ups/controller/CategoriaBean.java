@@ -9,7 +9,10 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import ec.edu.ups.EJB.CategoriaFacade;
 import ec.edu.ups.EJB.PersonaFacade;
@@ -41,7 +44,7 @@ public class CategoriaBean implements Serializable {
     
     private String contrasena;
     
-    private List<Producto> listaArr ;
+    private ArrayList<Producto> listaArr ;
     
     private String lista = "nada aqui";
 
@@ -103,6 +106,12 @@ public class CategoriaBean implements Serializable {
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+
+		//Aqui se carga la categoria 
+		
+		
+		//this.bntBusc = this.categoria.equals("Categorias");
+	
 	}
 	public String getlista() {
 		return lista;
@@ -175,14 +184,31 @@ public class CategoriaBean implements Serializable {
 	    
 	    
 	public void buscarTexto() {
+		
 		listener();
+		//System.out.println("Texto de busqueda: " + text);
+
+		//ArrayList<Producto> tempBusc = new ArrayList<Producto>();
+		
+		//tempBusc = getListaArr();
+		
+		//for (Producto producto : tempBusc) {
+			
+			//if (producto.getNombre().contains(text)) {
+				
+			//}
+		
+		//}
+		
+		
+		
 	}
 
 	
 	
 	
 	
-	public List<Producto> getListaArr() {
+	public ArrayList<Producto> getListaArr() {
 		
 		return this.listaArr;
 	}
@@ -196,17 +222,17 @@ public class CategoriaBean implements Serializable {
 		
 		System.out.println("Usuario: " + usuario );
 		
-		System.out.println("Contraseï¿½a: " + contrasena );
+		System.out.println("Contrase�a: " + contrasena );
 		
 		
 		Persona sta = ejbPersona.inicioSesion(usuario, contrasena);
-		LoginBean loginBean=new LoginBean();
+		LoguinBean loguinBean=new LoguinBean();
 		
 		if (sta != null && sta.getRol() == 'A') {
-			loginBean.login();
+			loguinBean.login();
 			return "inicioAdmin";
 		}else if (sta != null) {
-			loginBean.login();
+			loguinBean.login();
 			return "inicioUsuario";
 		}
 		

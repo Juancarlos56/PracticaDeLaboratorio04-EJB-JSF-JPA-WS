@@ -12,7 +12,7 @@ public class Navigator {
 		
 	}
 	
-	public String reglaRedir( String page ) {
+	public String redireccionamiento( String page ) {
 		
 		if(page.equals("CreacionFactura")) {
 			return "crearFactura";
@@ -30,14 +30,14 @@ public class Navigator {
 			return "bodega2";
 		}else if(page.equals("bodega3")) {
 			return "bodega3";
-		}else if(page.equals("GestionarPedidos")) {
-			return "GestionarPedidos";
-		}		else if(page.equals("informeGeneral")) {
+		}else if(page.equals("informeGeneral")) {
 			return "informeGeneral";
 		}else if(page.equals("gestionGodegas")) {
 			return "gestionGodegas";
+		}else if(page.equals("GestionarPedidos")) {
+			return "GestionarPedidos";
 		}else if(page.equals("salir")) {
-			LoginBean log=new LoginBean();
+			LoguinBean log=new LoguinBean();
 			log.logout();
 			return "salir";
 		}

@@ -1,6 +1,7 @@
 package ec.edu.ups.test;
 
 import java.io.Serializable;
+
 import java.util.Date;
 import java.util.List;
 

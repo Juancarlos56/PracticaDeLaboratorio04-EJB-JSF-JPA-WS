@@ -22,10 +22,9 @@ import ec.edu.ups.entidades.PedidoDetalle;
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
 @RequestScoped
-public class PedidoCabeceraBean implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class PedidosCabeceraBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	@EJB
 	private PedidoCabeceraFacade ejbPedidoCabecera;
 	@EJB
@@ -38,12 +37,6 @@ public class PedidoCabeceraBean implements Serializable{
 	private String cedula;
 	private String estado;
 	
-	
-	
-	public PedidoCabeceraBean() {
-		
-	}
-
 	@PostConstruct
 	public void init(){
 		cabeceras=ejbPedidoCabecera.pedidosCabeceraReves();
@@ -133,6 +126,5 @@ public class PedidoCabeceraBean implements Serializable{
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
 	
 }
