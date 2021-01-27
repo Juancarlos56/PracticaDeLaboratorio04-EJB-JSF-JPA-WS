@@ -56,6 +56,28 @@ public class Bodega implements Serializable {
 	
 	
 	
+	
+	public static List<Bodega> serializeBodegas(List<Bodega> bodegas){
+        List<Bodega> bodegaList = new ArrayList<Bodega>();
+        
+        bodegas.forEach(
+                bodega -> {
+                 
+
+                    Provincia provincia = bodega.getCiudad().getProvincia();
+                    provincia = new Provincia(provincia.getId(), provincia.getNombre());
+
+                    Ciudad ciudad = bodega.getCiudad();
+                    ciudad = new Ciudad(ciudad.getId(), ciudad.getNombre(), provincia);                    
+                    bodega.setCiudad(ciudad);                   
+                    bodega.setProductos(null);
+                    bodegaList.add(bodega);
+                }
+        );
+        return bodegaList;
+    }
+	
+	
 	public int getId() {
 		return id;
 	}
